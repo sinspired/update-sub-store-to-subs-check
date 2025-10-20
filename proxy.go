@@ -3,11 +3,8 @@ package main
 import (
 	"net/http"
 	"net/url"
-	"os"
 	"sync"
 	"time"
-
-	"log/slog"
 )
 
 // isProxyAvailable 并发检测代理是否可用
@@ -64,13 +61,6 @@ func isProxyAvailable(proxy string) bool {
 		}
 	}
 	return true
-}
-
-// setProxyEnv 设置系统代理环境变量
-func setProxyEnv(proxy string) {
-	os.Setenv("HTTP_PROXY", proxy)
-	os.Setenv("HTTPS_PROXY", proxy)
-	slog.Info("已设置代理", "proxy", proxy)
 }
 
 // findAvailableProxy 优先检测配置文件中的代理，不可用则并发检测常见端口
