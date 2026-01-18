@@ -333,7 +333,7 @@ func main() {
 		log.Println("未找到可用代理，将不设置代理")
 	}
 
-	destDir := `d:\Desktop\GoWork\subs-check\assets`
+	destDir := `d:\Desktop\GoWork\subs-check-pro\assets`
 	gitDir := filepath.Dir(destDir)
 
 	if err := os.MkdirAll(destDir, 0755); err != nil {
